@@ -97,3 +97,58 @@ git config --list
 ```
 
 > 💡 提示：使用 `--help` 查看详细帮助文档，例如：`git commit --help`
+
+## 🔧 关于一些python编程的基础知识
+
+### 1、pyhton中的self之面向对象的特点
+C++ this指针是一个隐式指针，指向当前对象的地址（内存位置）。
+编译器自动生成，无需显式声明。
+类型为 ClassName* const（常量指针）
+```c
+class MyClass {
+private:
+    int value;
+public:
+    void setValue(int value) {
+        this->value = value; // 用 this 区分成员变量和参数
+    }
+
+    MyClass* getAddress() {
+        return this; // 返回当前对象地址
+    }
+};
+
+// 使用
+MyClass obj;
+obj.setValue(42);//这时候的值，obj.value == 42了
+MyClass* addr = obj.getAddress(); // 获取对象地址
+```
+Python self参数是方法的第一个显式参数，代表当前对象的引用。
+必须手动在方法定义中声明（约定命名为 self）。
+本质是一个普通参数，指向对象实例。
+```python
+class MyClass {
+      def __init__(self,value):
+          self.value = value #必须用self去访问成员变量
+
+      def set_value(self,value):
+          self.value = value #显式使用self
+
+      def get_self(self):
+          return self #返回当前对象的引用
+}
+
+#使用
+obj = MyClass(42)
+obj.set_value(10)
+ref = obj.get_self() #ref和obj指向同一对象，引用同一个对象
+```
+底层机制:
+C++
+this 是编译器传递给成员函数的隐藏参数，函数调用时自动传入对象地址。
+例如：obj.func(x) 被编译为 func(&obj, x)。
+Python
+self 是显式参数，调用方法时解释器自动将对象引用作为第一个参数传入。
+例如：obj.method(x) 等价于 MyClass.method(obj, x)。
+
+
