@@ -155,8 +155,8 @@ self 是显式参数，调用方法时解释器自动将对象引用作为第一
 ### Model版本管理
 | 版本（model） | 主要功能 | 说明 | 日期 | 对应python文件 |
 | --- | --- | --- | --- | --- |
-| Basic_model | 利用LHS和高斯联合采样，基础MLP12*5结构，滑动窗口数据增强，实现了每隔4组数据进行一次在线微调| 最清晰易懂原始的版本 | 2025.06，27 | Basic_model.py |
-| Basic_model_with_explanation | 利用LHS和高斯联合采样，基础MLP12*5结构，滑动窗口数据增强，实现了每隔4组数据进行一次在线微调| 加上了海量注释的原始版本 | 2025.06，27 |Basic_model_with_explanation.py |
+| Basic_model | 利用LHS和高斯联合采样，基础MLP12*5结构，滑动窗口数据增强，实现了每隔4组数据进行一次在线微调| 最清晰易懂原始的版本 | 2025.06.27 | Basic_model.py |
+| Basic_model_with_explanation | 利用LHS和高斯联合采样，基础MLP12*5结构，滑动窗口数据增强，实现了每隔4组数据进行一次在线微调| 加上了海量注释的原始版本 | 2025.06.27 |Basic_model_with_explanation.py |
 ### 其他文件版本管理
 | 对应的python文件名 | 说明 |
 | --- | --- |
