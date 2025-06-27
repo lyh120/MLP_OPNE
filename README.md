@@ -151,4 +151,15 @@ Python
 self 是显式参数，调用方法时解释器自动将对象引用作为第一个参数传入。
 例如：obj.method(x) 等价于 MyClass.method(obj, x)。
 
+## 📦 代码版本管理
+### Model版本管理
+| 版本（model） | 主要功能 | 说明 | 日期 | 对应python文件 |
+| --- | --- | --- | --- | --- |
+| Basic_model | 利用LHS和高斯联合采样，基础MLP12*5结构，滑动窗口数据增强，实现了每隔4组数据进行一次在线微调| 最清晰易懂原始的版本 | 2025.06，27 | Basic_model.py |
+| Basic_model_with_explanation | 利用LHS和高斯联合采样，基础MLP12*5结构，滑动窗口数据增强，实现了每隔4组数据进行一次在线微调| 加上了海量注释的原始版本 | 2025.06，27 |Basic_model_with_explanation.py |
+### 其他文件版本管理
+| 对应的python文件名 | 说明 |
+| --- | --- |
+| Prediction_Network.py | 将特征提取层与预测头相互分离的神经网络结构，离线测试版本，在线微调的基础代码|
+| Offline_train.py | 离线训练代码，训练模型并保存，做到提前热身工作，供后续在线微调代码加载提前训练好的模型与使用|
 
