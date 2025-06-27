@@ -71,6 +71,43 @@ git pull origin main
 # 推送本地分支到远程
 git push -u origin new-branch
 ```
+#### 🔌 关联远程仓库补充
+```bash
+# 添加远程仓库地址（命名为origin，这是默认约定）
+git remote add origin https://github.com/用户名/仓库名.git
+
+# 验证是否添加成功
+git remote -v
+# 应该显示：
+# origin  https://github.com/用户名/仓库名.git (fetch)
+# origin  https://github.com/用户名/仓库名.git (push)
+
+```
+#### 🔄 首次同步（重要！）
+```bash
+# 如果远程仓库非空（已有README等文件），必须先拉取：
+git pull origin main --allow-unrelated-histories
+# ↑ 强制合并无关历史（首次必须）
+
+# 如果远程仓库是空的（全新仓库）可跳过上一步
+```
+#### 扩展场景
+重命名远程仓库（如将 new-origin 改为 origin）：
+```bash
+  git remote rename new-origin origin
+```
+修改 URL（如需更新 old-origin 的地址）：
+```bash
+  git remote set-url old-origin <新仓库URL>
+```
+一次性清空所有远程仓库：
+```bash
+  git remote remove new-origin
+  git remote remove old-origin
+  git remote remove origin  # 如果未被提前删除
+```
+注意：删除操作不可逆，确保不再需要该远程链接后再执行。如果后续需重新添加 origin，可使用：
+> git remote add origin <仓库URL>
 
 ### 6. 查看历史记录
 ```bash
